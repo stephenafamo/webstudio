@@ -182,6 +182,10 @@ export default async () => {
         console.log("changedBuilds.length", changedBuilds.length);
         console.time("update");
 
+        if (changedBuilds.length === 0) {
+          continue;
+        }
+
         const sql = `
           UPDATE "Build"
           SET
